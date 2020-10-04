@@ -86,7 +86,7 @@ const CustomerContainer = ({data}) => {
                                     <div className="action">
                                         <nav>
                                             <span onClick={() => handleDetailCustomer(value.id)}>Detail</span>
-                                            <span>Edit</span>
+                                            <span onClick={() => handleEditCustomer(value.id)}>Edit</span>
                                             <span onClick={() => handleHapusCustomer(value.id)}>Hapus</span>
                                         </nav>
                                     </div>
