@@ -46,8 +46,7 @@ footer{
   font-size: 14px;
 }
 
-.customer-list{
-}
+.customer-list{}
 .customer-list .chead{
   display: flex;
   background: #ccc;
@@ -62,6 +61,7 @@ footer{
 }
 .customer-list .cbody .cbody-tr > * {
   flex: 1;
+  padding: 0 10px;
 }
 .customer-list nav{}
 .customer-list nav span{
@@ -130,4 +130,57 @@ footer{
 }
 .customer-delete .dialog span{
   margin: 0 5px 0 0;
+}
+
+.customer-add{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.customer-add form{
+  display: flex;
+  flex-direction: column;
+}
+.customer-add form > *{
+  margin: 2px 0;
+  border-radius: 5px;
+}
+.customer-add form input[type="text"],
+.customer-add form input[type="password"],
+.customer-add form select,
+.customer-add form textarea {
+  border: 1px solid #efefef;
+  padding: 10px;
+}
+.customer-add form input[type="submit"]{
+  border: none;
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  background: tomato;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+.customer-add form .row{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 0 10px;
+}
+.customer-add form .row label{
+  font-weight: 700;
+}
+
+.notif{
+  padding: 20px;
+  border-radius: 5px;
+}
+.notif.notif-success{
+  background: cadetblue;
+  color: #fff;
 }

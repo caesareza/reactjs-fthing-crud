@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 
@@ -28,7 +28,7 @@ const CustomerContainer = ({data}) => {
     let history = useHistory();
 
     const handleDetailCustomer = (id) => {
-        history.push(`/customer/${id}`);
+        history.push(`/customer/detail/${id}`);
     }
 
     const handleEditCustomer = (id) => {
@@ -57,14 +57,18 @@ const CustomerContainer = ({data}) => {
         }, 2000);
     }
 
+    const handleAddCustomer = () => {
+        history.push('/customer/add');
+    }
+
     return(
         <>
+            <div className="btn-container"><span className="btn btn-add" onClick={handleAddCustomer}>Add Customer</span></div>
             <div className="customer-list">
                 <div className="chead">
                     <div>ID</div>
                     <div>Name</div>
                     <div>Email</div>
-                    <div>Address</div>
                     <div>Gender</div>
                     <div>Married</div>
                     <div></div>
@@ -77,7 +81,6 @@ const CustomerContainer = ({data}) => {
                                     <div>{value.id}</div>
                                     <div>{value.name}</div>
                                     <div>{value.email}</div>
-                                    <div>{value.address}</div>
                                     <div>{value.gender}</div>
                                     <div>{value.is_married}</div>
                                     <div className="action">
@@ -106,6 +109,10 @@ const CustomerIndex = () => {
     const [cust, setCust] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const ingat = useCallback(() => {
+       console.log(1);
+    }, [1]);
+
     useEffect(() => {
         setLoading(true);
         async function fetchCustomer(){
@@ -113,16 +120,16 @@ const CustomerIndex = () => {
             const data = await c.data;
             setCust(data.result.rows)
             setLoading(false)
+            console.log('data', data);
         }
         fetchCustomer();
-
+        console.log('useEffect');
         document.title = 'ReactJS Customer CRUD - ReactJSHookCustomer';
     }, [setCust, setLoading]);
 
     return (
         <div className="customer-home">
             <h1 title="Customer List">Customer List</h1>
-            {/*<div className="btn-container"><span className="btn btn-add">Add Customer</span></div>*/}
             {
                 loading ?
                     (<Loading />)  :
