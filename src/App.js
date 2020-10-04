@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import './App.css';
+import CustomerIndex from './pages/customer/customerIndex';
+import CustomerDetail from './pages/customer/customerDetail';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <div className="app">
+                <header>
+                    <div className="logo">ReactJS CRUD</div>
+                    <div className="menu">
+                        <Link to="/">Home</Link>
+                        <Link to="/">About Me</Link>
+                    </div>
+                </header>
+                <div className="content">
+                    <Switch>
+                        <Route exact path="/" component={CustomerIndex} />
+                        <Route exact path="/customer/:id" component={CustomerDetail} />
+                    </Switch>
+                </div>
+                <footer>
+                    <div>&copy; Dreas - Oktober 2020</div>
+                    <div>ReactJS CRUD, simple customer crud app using reactjs and react hook</div>
+                </footer>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
