@@ -1,13 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import API from '../../utils/API';
+import {gender, genderAvatar, married} from '../../utils/Toolkit';
 
 const Loading = _ => <>Loading</>
 
 const CustomerDetailContainer = ({data}) => {
     return(
         <>
+            <img src={genderAvatar(data.gender)} alt={data.name} />
             <h2 title={data.name}>{data.name}</h2>
+            <span>{gender(data.gender)}</span>
+            <span>{married(data.is_married)}</span>
             <span>{data.email}</span>
             <span>{data.address}</span>
         </>

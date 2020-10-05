@@ -102,6 +102,10 @@ footer{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 5px 10px -10px #666;
 }
 .customer-detail h2{
   font-size: 35px;
