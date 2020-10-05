@@ -5,6 +5,7 @@ import CustomerIndex from './pages/customer/customerIndex';
 import CustomerDetail from './pages/customer/customerDetail';
 import CustomerAdd from './pages/customer/customerAdd';
 import CustomerEdit from './pages/customer/customerEdit';
+import AboutMe from './pages/site/aboutMe';
 
 function App() {
     return (
@@ -14,7 +15,7 @@ function App() {
                     <div className="logo">ReactJS CRUD</div>
                     <div className="menu">
                         <Link to="/">Home</Link>
-                        <Link to="/">About Me</Link>
+                        <Link to="/about-me">About Me</Link>
                     </div>
                 </header>
                 <div className="content">
@@ -23,6 +24,7 @@ function App() {
                         <Route exact path="/customer/add" component={CustomerAdd} />
                         <Route exact path="/customer/detail/:id" component={CustomerDetail} />
                         <Route exact path="/customer/edit/:id" component={CustomerEdit} />
+                        <Route exact path="/about-me" component={AboutMe} />
                     </Switch>
                 </div>
                 <footer>

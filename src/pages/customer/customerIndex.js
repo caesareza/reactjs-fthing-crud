@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
+import {gender, married} from '../../utils/Toolkit';
 
 const Loading = _ => (
     <div className="loading">
@@ -70,7 +71,7 @@ const CustomerContainer = ({data}) => {
                     <div>Name</div>
                     <div>Email</div>
                     <div>Gender</div>
-                    <div>Married</div>
+                    <div>Married Status</div>
                     <div></div>
                 </div>
                 <div className="cbody">
@@ -81,8 +82,8 @@ const CustomerContainer = ({data}) => {
                                     <div>{value.id}</div>
                                     <div>{value.name}</div>
                                     <div>{value.email}</div>
-                                    <div>{value.gender}</div>
-                                    <div>{value.is_married}</div>
+                                    <div>{gender(value.gender)}</div>
+                                    <div>{married(value.is_married)}</div>
                                     <div className="action">
                                         <nav>
                                             <span onClick={() => handleDetailCustomer(value.id)}>Detail</span>
